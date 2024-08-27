@@ -52,4 +52,5 @@ http://localhost:85/node/create-user
 ## To run micro services with out docker
 - configure JDBC connection params in application.properties files 
 - change rest api end points respectively i.e ip address and ports
+- ```mvn spring-boot:run``` run this to start microservice
 
