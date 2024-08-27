@@ -1,0 +1,22 @@
+# Ignore JAR files
+*.jar
+
+# Ignore other files
+*.class
+*.war
+*.ear
+*.zip
+*.rar
+*.tar
+*.gz
+*.bz2
+*.7z
+
+# Ignore Spring Boot specific files
+target/
+!.mvn/wrapper/maven-wrapper.properties
+
+# Ignore IDE specific files
+.idea/
+.eclipse/
+.vscode/
