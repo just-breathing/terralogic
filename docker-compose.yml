@@ -1,40 +1,51 @@
 
 services:
-  # nginx:
-  #   ports:
-  #     - "85:85"
-  #     - "443:443"
-  #   build:
-  #     context: ./Nginx
-  #     dockerfile: Dockerfile
-  #   depends_on:
-  #     authentication:
-  #       condition: service_started
-  #     nodes:
-  #       condition: service_started
+  nginx:
+    ports:
+      - "85:85"
+      - "443:443"
+    build:
+      context: ./Nginx
+      dockerfile: Dockerfile
+    depends_on:
+      authentication:
+        condition: service_started
+      node:
+        condition: service_started
 
-  # authentication:
-  #   image: authentication
-  #   build:
-  #     context: ./authentication
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "8080:8080"
-  #   depends_on:
-  #     postgres:
-  #       condition: service_healthy
+  node:
+    build:
+      context: ./nodes
+      dockerfile: DockerFile
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/terralogic
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: adminpwd
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+
+  authentication:
+    image: authentication
+    build:
+      context: ./authentication
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/terralogic
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: adminpwd
+    depends_on:
+      postgres:
+        condition: service_healthy
+
       
   
-  # nodes:
-  #   image: node
-  #   build:
-  #     context: ./nodes
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "8081:8081"
-  #   depends_on:
-  #     postgres:
-  #       condition: service_healthy
+
 
   postgres:
     image: postgres:latest

@@ -1,14 +1,16 @@
 # Use an official OpenJDK runtime as a parent image
-FROM openjdk:17
+FROM amazoncorretto:17-alpine-jdk
 
 # Set the working directory inside the container
-WORKDIR /app
 
 # Copy the application JAR file to the container
-COPY target/nodes-0.0.1-SNAPSHOT.jar /app/user.jar
+
+COPY target/*.jar /app/user.jar
+
+WORKDIR /app
 
 # Expose the port your Spring Boot application will run on
 EXPOSE 8080
 
 # Run the application
-ENTRYPOINT ["java","-jar","/app/user.jar"]
+ENTRYPOINT ["java","-jar","user.jar"]

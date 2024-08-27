@@ -1,0 +1,643 @@
+{
+	"info": {
+		"_postman_id": "13291a6c-0915-4c20-bd16-3318aae133b6",
+		"name": "TerraLogic Assessment Apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33813465"
+	},
+	"item": [
+		{
+			"name": "Auth Microservice",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userName\":\"Sundeep_00\",\n    \"email\":\"sundeep.reddy.n.2000@gmail.com\",\n    \"primeGroupName\":\"red_204\",\n    \"password\":\"SundeepMasters#2024\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:85/user/auth/create-user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "85",
+							"path": [
+								"user",
+								"auth",
+								"create-user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userName\":\"Sundeep_00\",\n    \"email\":\"sundeep.reddy.n.2000@gmail.com\",\n    \"primeGroupName\":\"red_204\",\n    \"password\":\"SundeepMasters#2024\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:85/user/auth/create-user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "85",
+									"path": [
+										"user",
+										"auth",
+										"create-user"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.1"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Aug 2024 22:03:51 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "25"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								}
+							],
+							"cookie": [],
+							"body": "User created successfully"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"set-token\",function (){",
+									"    var token=pm.response.text();",
+									"    console.log(token);",
+									"   pm.collectionVariables.set(\"token\", token);",
+									"})",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"userName\":\"Sundeep_00\",\n    \"password\":\"SundeepMasters#2024\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:85/user/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "85",
+							"path": [
+								"user",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"userName\":\"Sundeep_00\",\n    \"password\":\"SundeepMasters#2024\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:85/user/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "85",
+									"path": [
+										"user",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.1"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Aug 2024 22:04:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "137"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								}
+							],
+							"cookie": [],
+							"body": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJTdW5kZWVwXzAwIiwiaWF0IjoxNzI0Nzk2MjQ1LCJleHAiOjE3MjQ3OTYzNTN9.O8QgkXfwCFCYoC9S5bcdWnT8zYa5DVy09OvjGPrk8uo"
+						}
+					]
+				},
+				{
+					"name": "Get All Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:85/user/all-users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "85",
+							"path": [
+								"user",
+								"all-users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:85/user/all-users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "85",
+									"path": [
+										"user",
+										"all-users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.1"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Aug 2024 22:04:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"userName\": \"Sundeep01\",\n        \"password\": \"$2a$12$B08Oi5UVXPgTbVh/7s20V.ewWWPBK2Cu.sgFcgO8hkXOMXnvqa1LS\",\n        \"email\": \"sundeep.reddy.n.0001@gmail.com\",\n        \"firstName\": null,\n        \"lastName\": null,\n        \"middleName\": null,\n        \"contactNo\": null,\n        \"expirationDate\": null,\n        \"description\": null,\n        \"dateTimeFormat\": null,\n        \"scopeNameList\": null,\n        \"primeGroupName\": \"red_204\",\n        \"secondGroupName\": null,\n        \"language\": null,\n        \"organization\": null,\n        \"timeZone\": null,\n        \"timeout\": null,\n        \"memo\": null,\n        \"role\": null\n    },\n    {\n        \"userName\": \"Sundeep_00\",\n        \"password\": \"$2a$12$yaWJ4qwzJSa1/P4QQ1k4Z.X8N6PgFeI4mrr45ZOSCyvgGeHN70he2\",\n        \"email\": \"sundeep.reddy.n.2000@gmail.com\",\n        \"firstName\": null,\n        \"lastName\": null,\n        \"middleName\": null,\n        \"contactNo\": null,\n        \"expirationDate\": null,\n        \"description\": null,\n        \"dateTimeFormat\": null,\n        \"scopeNameList\": null,\n        \"primeGroupName\": \"red_204\",\n        \"secondGroupName\": null,\n        \"language\": null,\n        \"organization\": null,\n        \"timeZone\": null,\n        \"timeout\": null,\n        \"memo\": null,\n        \"role\": null\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "update username",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"newUserName\":\"Sundeep_01\",\n    \"oldUserName\":\"Sundeep01\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/user/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"user",
+								"update"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "update username",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"newUserName\":\"Sundeep00\",\n    \"oldUserName\":\"Sundeep_00\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:85/user/update",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "85",
+									"path": [
+										"user",
+										"update"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.1"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Aug 2024 22:04:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "26"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								}
+							],
+							"cookie": [],
+							"body": "Username update successful"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Node Microservice",
+			"item": [
+				{
+					"name": "create a new node",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"nodeId\": \"T300_002\",\n        \"nodeName\": \"Node 2\",\n        \"description\": \"Sample text\",\n        \"memo\": \"Sample memo\",\n        \"nodeType\": \"Roadm\",\n        \"parentNodeGroupName\": \"Subgroup NE_2\",\n        \"parentNodeGroupId\": \"NE_2\",\n        \"parentNodeGroupMemo\": \"Sample parent memo\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:85/node/create-node",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "85",
+							"path": [
+								"node",
+								"create-node"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "create a new node",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "    {\n        \"nodeId\": \"T300_002\",\n        \"nodeName\": \"Node 2\",\n        \"description\": \"Sample text\",\n        \"memo\": \"Sample memo\",\n        \"nodeType\": \"Roadm\",\n        \"parentNodeGroupName\": \"Subgroup NE_2\",\n        \"parentNodeGroupId\": \"NE_2\",\n        \"parentNodeGroupMemo\": \"Sample parent memo\"\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:85/node/create-node",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "85",
+									"path": [
+										"node",
+										"create-node"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "plain",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.1"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Aug 2024 22:04:57 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/plain;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "25"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "Node created successfully"
+						}
+					]
+				},
+				{
+					"name": "Get All Nodes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:85/node/all-nodes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "85",
+							"path": [
+								"node",
+								"all-nodes"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Nodes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:85/node/all-nodes",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "85",
+									"path": [
+										"node",
+										"all-nodes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.27.1"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 27 Aug 2024 22:05:01 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"nodeId\": \"T300_002\",\n        \"nodeName\": \"Node 2\",\n        \"description\": \"Sample text\",\n        \"memo\": \"Sample memo\",\n        \"nodeType\": \"Roadm\",\n        \"parentNodeGroupName\": \"Subgroup NE_2\",\n        \"parentNodeGroupId\": \"NE_2\",\n        \"parentNodeGroupMemo\": \"Sample parent memo\"\n    }\n]"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}

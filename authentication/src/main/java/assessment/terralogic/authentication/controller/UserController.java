@@ -19,7 +19,6 @@ import assessment.terralogic.authentication.service.UserService;
 
 
 @RestController
-@RequestMapping("/user")
 public class UserController {
 
     @Autowired
