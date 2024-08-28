@@ -42,7 +42,11 @@ http://localhost:85/node/create-user
 - To fetch all nodes
  http://localhost:85/node/all-nodes
 
+## Execution 
+- ``` mvn clean install or mvn install``` to insall dependecies 
+
 ## Docker 
+- ```mvn package``` to get jar files needed for docker 
 [!NOTE] Make sure you have docker installed in your system and ports 85,8080,8081,5234 are free
 - to run micro services and test API'S using docker just run
 ```docker compose up```
